@@ -46,6 +46,7 @@ export class TestHelper {
             username: 'some-user',
             password: '',
             auth_service: '',
+            auth_data: '',
             create_at: 0,
             delete_at: 0,
             email: '',

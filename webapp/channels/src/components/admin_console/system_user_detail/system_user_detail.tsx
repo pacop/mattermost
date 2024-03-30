@@ -508,6 +508,11 @@ export function getUserAuthenticationTextField(intl: IntlShape, mfaEnabled: Prop
         } else {
             service = toTitleCase(user.auth_service);
         }
+
+        if (user.auth_data) {
+            service += ` (${user.auth_data})`;
+        }
+
         authenticationTextField = service;
     } else {
         authenticationTextField = intl.formatMessage({

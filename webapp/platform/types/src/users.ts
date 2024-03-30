@@ -38,6 +38,7 @@ export type UserProfile = {
     username: string;
     password: string;
     auth_service: string;
+    auth_data: string;
     email: string;
     nickname: string;
     first_name: string;

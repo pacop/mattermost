@@ -631,7 +631,6 @@ func (u *User) Etag(showFullName, showEmail bool) string {
 // Remove any private data from the user object
 func (u *User) Sanitize(options map[string]bool) {
 	u.Password = ""
-	u.AuthData = NewString("")
 	u.MfaSecret = ""
 	u.LastLogin = 0
 
@@ -647,6 +646,9 @@ func (u *User) Sanitize(options map[string]bool) {
 	}
 	if len(options) != 0 && !options["authservice"] {
 		u.AuthService = ""
+	}
+	if len(options) != 0 && !options["authdata"] {
+		u.AuthData = NewString("")
 	}
 }
 
@@ -668,7 +670,6 @@ func (u *User) SanitizeInput(isAdmin bool) {
 
 func (u *User) ClearNonProfileFields() {
 	u.Password = ""
-	u.AuthData = NewString("")
 	u.MfaSecret = ""
 	u.EmailVerified = false
 	u.AllowMarketing = false

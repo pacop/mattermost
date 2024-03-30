@@ -12,6 +12,7 @@ describe('Utils.Route', () => {
         test('mfa is enforced', () => {
             const user: UserProfile = {mfa_active: false,
                 auth_service: '',
+                auth_data: '',
                 id: '',
                 create_at: 0,
                 update_at: 0,
@@ -72,6 +73,7 @@ describe('Utils.Route', () => {
         test('mfa is not enforced or enabled', () => {
             const user: UserProfile = {mfa_active: true,
                 auth_service: '',
+                auth_data: '',
                 id: '',
                 create_at: 0,
                 update_at: 0,

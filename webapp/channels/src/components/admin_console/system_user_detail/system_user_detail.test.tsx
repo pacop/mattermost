@@ -75,6 +75,16 @@ describe('getUserAuthenticationTextField', () => {
         expect(result).toEqual('Oauth');
     });
 
+    it('should return auth service and auth_data if any', () => {
+        const result = getUserAuthenticationTextField(intl, true, {auth_service: 'oauth', auth_data: 'Custom id'} as UserProfile);
+        expect(result).toEqual('Oauth (Custom id)');
+    });
+
+    it('should return auth service and not auth_data if empty', () => {
+        const result = getUserAuthenticationTextField(intl, true, {auth_service: 'oauth', auth_data: ''} as UserProfile);
+        expect(result).toEqual('Oauth');
+    });
+
     it('should include MFA if user has MFA enabled', () => {
         const result = getUserAuthenticationTextField(intl, true, {auth_service: 'oauth', mfa_active: true} as UserProfile);
         expect(result).toEqual('Oauth, MFA');
